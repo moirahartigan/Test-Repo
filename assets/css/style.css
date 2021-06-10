@@ -3,10 +3,45 @@ text-align: center;
 
 }
 
-.cards {
+.card {
 display: inline-block;
 width: 100px;
 height: 100px;
-background-color: #333;
+background-color: #eee;
+cursor: pointer;
 
+}
+
+.card:hover {
+    box-shadow: inset 0px 0px 0px 1px red;
+    box-sizing: border-box;
+}
+
+.monster-1 {
+    background: url(../images/monster-1.jpg)
+}
+.monster-2 {
+    background: url(../images/monster-2.jpg)
+}
+.monster-3 {
+    background: url(../images/monster-3.jpg)
+}
+.monster-4 {
+    background: url(../images/monster-4.jpg)
+}
+.monster-5 {
+    background: url(../images/monster-5.jpg)
+}
+.monster-6 {
+    background: url(../images/monster-6.jpg)
+}
+.monster-7 {
+    background: url(../images/monster-7.jpg)
+}
+.monster-8 {
+    background: url(../images/monster-8.jpg)
+}
+
+.image-hidden {
+    background: url(../images/cardback.jpg)
 }
