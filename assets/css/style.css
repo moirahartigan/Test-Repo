@@ -10,6 +10,14 @@
     font-family: 'Amatic-sc', sans-serif;
     background-image: url('../images/background-sky.jpg');
   }
+
+  .page-title {
+    color: #ff5100;
+    font-family: 'Amatic-sc', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+  }
   
   .memory-game {
     width: 89vh;
