@@ -11,7 +11,16 @@
 
   <h1 class="page-title">Alien Memory</h1>
      <!-- Memory game grid -->
-     <section class="memory-game">
+     <div class="game-container">
+      <div class="game-info-container">
+        <div class="game-info">
+          Time <span id="time-remaining">100</span>
+        </div>
+        <div class="game-info">
+          Moves <span id="moves">0</span>
+        </div>
+  
+      </div>
         <div class="memory-card">
           <img class="card-front" src="assets/images/monster-1.jpg" alt="monster-1">
           <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
@@ -91,7 +100,13 @@
             <img class="card-front" src="assets/images/monster-8.jpg" alt="monster-8">
             <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
         </div>
-      </section>
+      </div>
+
+      <!-- New Game again -->
+<div> 
+  <button class="hero-btn" onclick="reset()">New Game</button>
+</div>
+    </div>
 
       <!-- Modal -->
   <section class="win-game-modal">
@@ -100,8 +115,10 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>WELL DONE!</h2>
+        <br>
         <p>You have won the game and found all 8 pairs of cards.</p>
-        <!-- <img class="modal-img" src="" alt="add an image of an alien here saying well done"> -->
+        <br>
+        <img class="modal-img" src="/assets/images/thumbs-up.png" alt="Thumbs up smiley face">
         <button class="btn play-again-btn">Play Again?</button>
       </div>
     </div>
