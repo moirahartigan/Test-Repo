@@ -47,6 +47,7 @@ body {
   perspective: 1000px;
 }
 
+
 .memory-card {
   position: relative;
   cursor: pointer;
@@ -119,7 +120,7 @@ Section - Modal
 /* Modal (background) */
 .modal {
   /*Hidden by default */
-  /* display: none; */
+  display: none;
   position: fixed;
   z-index: 99;
   left: 0;
