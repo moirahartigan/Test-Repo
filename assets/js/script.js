@@ -18,7 +18,6 @@ if(lockBoard) return; // return is lockBoard is true so the rest of the function
 if (this === firstCard) return;
 this.classList.add('flip'); //if valid, flips card using css class
 
-
 if (!flippedCard){
     // The first card clicked
     flippedCard = true;
@@ -71,42 +70,6 @@ function shuffle() {
 
 };
 
-// game info -timer 
-let open = [];
-let matched = 0;
-let moveCounter = 0;
-let timer = {
-  seconds: 0,
-  minutes: 0,
-  clearTime: -1
-};
-
-//Start time first card is clicked 
-// https://stackoverflow.com/questions/46458740/starting-timer-when-clicking-first-card-of-memory-game
-
-//Start timer
-let startTimer = function() {
-  if (timer.seconds === 59) {
-    timer.minutes++;
-    timer.seconds = 0;
-  } else {
-    timer.seconds++;
-  
-  };
-  // Ensure that single digit seconds are preceded with a 0
-  let formattedSec = "0";
-  if (timer.seconds < 10) {
-    formattedSec += timer.seconds;
-  } else {
-    formattedSec = String(timer.seconds);
-  }
-
-  let time = String(timer.minutes) + ":" + formattedSec;
-  $(".timer").text(time);
-  
-};
-
-
 function reset(){
   setTimeout(() => {
     flippedCard = false;
@@ -118,12 +81,8 @@ function reset(){
     shuffle();
     cards.forEach(card => card.addEventListener('click', flipCard));
   }, 500);
-
+  console.log("reset button clicked"); // 
 }
 
-// Toggles win modal on
-function showModal() {
-  showModal.css("display", "block");
-}
-   
+
 
