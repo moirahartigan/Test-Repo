@@ -1,130 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Memory Game</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Memory card flip game with an Alien theme">
+  <meta name="keywords" content="memory game, flip card memory game, flip card game, game, flip card">
+  <meta name="author" content="Moira Hartigan">
+
+  <!-- style sheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+
 </head>
+<title>Alien Memory | Memory Game</title>
+
 <body>
 
+
   <h1 class="page-title">Alien Memory</h1>
-     <!-- Memory game grid -->
-     <div class="game-container">
-      <div class="game-info-container">
-        <div class="game-info">
-          Time <span class="timer">0.00</span>
-        </div>
-        <div class="game-info">
-          Moves <span class="moves">0</span>
-        </div>
-  
-      </div class="deck" id="card-deck">
-        <div class="memory-card" data-image="monster-1">
-          <img class="card-front" src="assets/images/monster-1.jpg" alt="monster-1">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-1">
-            <img class="card-front" src="assets/images/monster-1.jpg" alt="monster-1">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-2">
-            <img class="card-front" src="assets/images/monster-2.jpg" alt="monster-2">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-2">
-            <img class="card-front" src="assets/images/monster-2.jpg" alt="monster-2">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-3">
-            <img class="card-front image-hidden" src="assets/images/monster-3.jpg" alt="monster-3">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-3">
-            <img class="card-front" src="assets/images/monster-3.jpg" alt="monster-3">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-4">
-            <img class="card-front" src="assets/images/monster-4.jpg" alt="monster-4">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-4">
-            <img class="card-front" src="assets/images/monster-4.jpg" alt="monster-4">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-5">
-            <img class="card-front" src="assets/images/monster-5.jpg" alt="monster-5">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-5">
-            <img class="card-front" src="assets/images/monster-5.jpg" alt="monster-5">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-6">
-            <img class="card-front" src="assets/images/monster-6.jpg" alt="monster-6">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-      
-        <div class="memory-card" data-image="monster-6">
-            <img class="card-front" src="assets/images/monster-6.jpg" alt="monster-6">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-
-        <div class="memory-card" data-image="monster-7">
-            <img class="card-front" src="assets/images/monster-7.jpg" alt="monster-7">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-
-        <div class="memory-card" data-image="monster-7">
-            <img class="card-front" src="assets/images/monster-7.jpg" alt="monster-7">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-
-        <div class="memory-card" data-image="monster-8">
-            <img class="card-front" src="assets/images/monster-8.jpg" alt="monster-8">
-          <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
-
-        <div class="memory-card" data-image="monster-8">
-            <img class="card-front" src="assets/images/monster-8.jpg" alt="monster-8">
-            <img class="card-back" src="assets/images/blank2.jpg" alt="Blank Card">
-        </div>
+  <!-- Memory game grid -->
+  <div class="game-container">
+    <div class="game-info-container">
+      <div onclick="flipcard()" class="game-info">Time 
+        <span class="timer" id="minutes"></span>:<span id="seconds"></span>
       </div>
-
-      <!-- New Game again -->
-<div> 
-  <button id="new-game" class="hero-btn" onclick="reset()">New Game</button>
-</div>
+      <div class="game-info"> Moves
+        <span class="moves">0</span>
+      </div>
     </div>
 
-      <!-- Modal -->
-  <section class="win-game" id="win-msg">
-    <div id="modal" class="modal">
-      <!-- Modal content -->
+    <div class="memory-card" data-image="monster-1">
+      <img class="card-front" src="assets/images/monster-1.jpg" alt="monster 1">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-1">
+      <img class="card-front" src="assets/images/monster-1.jpg" alt="monster 1">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-2">
+      <img class="card-front" src="assets/images/monster-2.jpg" alt="monster 2">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-2">
+      <img class="card-front" src="assets/images/monster-2.jpg" alt="monster 2">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-3">
+      <img class="card-front image-hidden" src="assets/images/monster-3.jpg" alt="monster 3">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-3">
+      <img class="card-front" src="assets/images/monster-3.jpg" alt="monster 3">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-4">
+      <img class="card-front" src="assets/images/monster-4.jpg" alt="monster 4">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-4">
+      <img class="card-front" src="assets/images/monster-4.jpg" alt="monster 4">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-5">
+      <img class="card-front" src="assets/images/monster-5.jpg" alt="monster 5">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-5">
+      <img class="card-front" src="assets/images/monster-5.jpg" alt="monster 5">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-6">
+      <img class="card-front" src="assets/images/monster-6.jpg" alt="monster 6">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-6">
+      <img class="card-front" src="assets/images/monster-6.jpg" alt="monster 6">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-7">
+      <img class="card-front" src="assets/images/monster-7.jpg" alt="monster 7">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-7">
+      <img class="card-front" src="assets/images/monster-7.jpg" alt="monster 7">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-8">
+      <img class="card-front" src="assets/images/monster-8.jpg" alt="monster 8">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    <div class="memory-card" data-image="monster-8">
+      <img class="card-front" src="assets/images/monster-8.jpg" alt="monster 8">
+      <img class="card-back" src="assets/images/blank2.jpg" alt="Card Back clouds ">
+    </div>
+
+    
+  </div>
+
+  <!-- New Game again -->
+  <div>
+    <button class="hero-btn" onclick="reset()">New Game</button>
+  </div>
+  </div>
+
+   <!-- Modal -->
+   <section id="win-msg">
+    <div class="modal" id="modal">
+    <!-- modal content -->
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>WELL DONE!</h2>
-        <br>
-        <p>You have won the game and found all 8 pairs of cards.</p>
-        <br>
-        <img class="modal-img" src="/assets/images/thumbs-up.png" alt="Thumbs up smiley face">
-        <button class="btn hero-btn restart">Play Again?</button>
+        <span id="close" Sclass="close">&times;</span>
+          <h2>Well Done!</h2>
+          <br>
+          <p>You have won the game and found all 8 pairs of cards.</p>
+          <br>
+          <img class="modal-img" src="/assets/images/thumbs-up.png" alt="Thumbs up smiley face">
+          <button class="btn hero-btn" onclick="windowClose()">Play Again?</button>
       </div>
     </div>
   </section>
-
-    <script src="assets/js/script.js"></script>
+ 
+  
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>
-   

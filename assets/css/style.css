@@ -148,6 +148,7 @@ Section - Modal
   color: #28e;
   font-size: 5em;
 }
+
 .close:hover,
 .close:focus {
   color: #5cf;
@@ -160,12 +161,8 @@ Section - Modal
   margin: 1em 0 1em;
   width: 20em;
 }
-p.stats {
-  font-weight: 600;
-}
-p.stats:last-child {
-  margin-bottom: 1em;
-}
+
+
 .play-again-btn {
   background: #ff5100;
   margin-bottom: 1em;
