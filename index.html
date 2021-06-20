@@ -20,7 +20,7 @@
 
   <h1 class="page-title">Alien Memory</h1>
   <!-- Memory game grid -->
-  <div class="game-container">
+  <div class="game-container" id="game-container" onclick="startTimer()">
     <div class="game-info-container">
       <div onclick="flipcard()" class="game-info">Time 
         <span class="timer" id="minutes"></span>:<span id="seconds"></span>
@@ -124,13 +124,13 @@
     <div class="modal" id="modal">
     <!-- modal content -->
       <div class="modal-content">
-        <span id="close" Sclass="close">&times;</span>
+        <span id="close" class="close">&times;</span>
           <h2>Well Done!</h2>
           <br>
           <p>You have won the game and found all 8 pairs of cards.</p>
           <br>
           <img class="modal-img" src="/assets/images/thumbs-up.png" alt="Thumbs up smiley face">
-          <button class="btn hero-btn" onclick="windowClose()">Play Again?</button>
+          <button class="btn hero-btn play-again-button" onclick="windowClose()">Play Again?</button>
       </div>
     </div>
   </section>

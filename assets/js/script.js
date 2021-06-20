@@ -6,6 +6,7 @@ let flippedCard = false; //used to check if card has already been clicked
 let lockBoard = false; // used to lock the board until each set of cards are finished are finished before selecting the next two
 let firstCard, secondCard; //Used to check for cards match
 let moves = 0;
+let matchCounter = 0;
 
 
 cards.forEach(card => card.addEventListener('click', flipCard));
@@ -42,9 +43,16 @@ initial code taken form https://marina-ferreira.github.io/tutorials/js/memory-ga
 function checkCardMatch() {
   let isMatch = firstCard.dataset.image === secondCard.dataset.image;
 
-  isMatch ? pairMatch() : noMatch();
+  if(isMatch){
+    matchCounter += 1;
+    pairMatch();
+    if(matchCounter == (cards.length/2)){
+      
+    }
+  } else {
+    noMatch();
  }
-       
+}     
   
 // matched cards will be disabled for clicks once they are flipped
 function pairMatch(){
@@ -53,7 +61,7 @@ function pairMatch(){
 firstCard.removeEventListener('click', flipCard);  
 secondCard.removeEventListener('click', flipCard); 
 
-showWinMessage();
+
 resetBoard();  
 }
 
@@ -80,53 +88,74 @@ moveContainer.innerHtml = 0;
 function addMove() {
   moves++;
   moveContainer.innerHTML = moves;
- console.log('function selected');
+ console.log('addmove');
+}
+
+//reset move counter
+function resetCounter(){
+  moves[0].innerHTML = moves = 0;
 }
 
 //game timer -https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
-let sec = 0;
-function timer(val) {
-  return  val > 9 ? val : "0" + val;
-}
-setInterval(function(){
-  document.getElementById("seconds").innerHTML=timer(++sec%60);
-  document.getElementById("minutes").innerHTML=timer(parseInt(sec/60,10));
-}, 1000);
-  
+const timerContainer = document.querySelector(".timer");
+let liveTimer,
+totalSeconds = 0;
 
+timerContainer.innerHTML = totalSeconds + "s";
+
+
+function startTimer() {
+  liveTimer = setInterval(function() {
+    totalSeconds++;
+    timerContainer.innerHTML = totalSeconds + "s";
+  }, 1000);
+}
+
+
+
+function stopTimer() {
+  clearInterval(liveTimer);
+
+}
+  
+// new game button 
 function reset(){
   setTimeout(() => {
     flippedCard = false;
     [firstCard, secondCard] = [null, null];
-    
     timer = 0;
     moves = 0;
     cards.forEach(cardReset => cardReset.classList.remove('flip'));
     shuffle();
     cards.forEach(card => card.addEventListener('click', flipCard));
   }, 500);
-  timer(); // timer reset will go here
+  startTimer(); // timer reset will go here
 }
 
-const winMsg = document.getElementById('win-msg');
+
 const modal = document.getElementById('modal');
 const close = document.getElementById('close');
 
-//add an event for when all pairs match and game is won 
-//if (pairMatch.length === 16){
- // showWinMessage();
-//}
-
-close.addEventListener('click', () => {
-  modal.classList.remove('show');
-});
-
-function showWinMessage(){
-  
+function winGame() {
+  if (pairMatch.length === 2) {
+    // stopTimer();
+    // showWinMessage();
+    console.log("i won the game");
+  }
 }
 
+function showWinMessage(){
+    modal.style.display ="block";
+}
+// when the user clicks on the close modal
+window.onclick = function (event) {
+  if (event.target.id == 'close') {
+    document.getElementById('modal').style.display = "none";
+  }
+};
 
 
+ 
 function resetBoard(){
   [flippedCard, lockBoard] = [false, false];
   [firstCard,secondCard] = [null, null];
