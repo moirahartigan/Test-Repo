@@ -114,7 +114,7 @@ body {
 
 .modal {
   /*Hidden by default */
-  /* display: none; */
+  display: none;
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   z-index: 99;
@@ -176,7 +176,7 @@ body {
   padding-bottom: 20px;
 }
 
-<<<<<<< HEAD
+
 .page-title {
   margin: 20px;
   font-size: 2.5em;
@@ -218,6 +218,14 @@ body {
   background-position: center center;
   background-size: cover;
   color: white;
+}
+
+#message {
+  font-size: 200%;
+}
+span{
+  color:#ff5100;
+  font-size: 200%
 }
 .page-wrap {
   min-height: 100vh;
